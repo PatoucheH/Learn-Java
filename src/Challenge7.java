@@ -25,14 +25,14 @@ public class Challenge7 {
         return arrayLine.size();
     }
 
-    public static void getAllLine(){
+    public void getAllLine(){
         getCSVLine();
-        for (int i = 0; i < arrayLine.size(); i++){
-            System.out.println(arrayLine.get(i));
+        for (String s : arrayLine) {
+            System.out.println(s);
         }
     }
 
-    public static void getOneLine(int line){
+    public void getOneLine(int line){
         System.out.println(arrayLine.get(line));
     }
 }

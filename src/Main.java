@@ -62,12 +62,42 @@ public class Main {
                     }
                 }
                 else {
-                    System.out.println("Choose if you want all the file (1) or just one line (2) : ");
-                    numberLine = scannerNumberLine.nextInt();
+                    System.out.println("You must choose the number 1 or 2 ");
                 }
                 break;
             case 8:
-                System.out.println("Coming soon !");
+                Challenge8 challenge8 = new Challenge8();
+                Scanner scannerChoice = new Scanner(System.in);
+                System.out.println("Choose if you want all the information (1) or choose just one information (2) to display : ");
+                int choice = scannerChoice.nextInt();
+                if(choice == 1) challenge8.getAllFile();
+                else if (choice == 2){
+                    Scanner scannerInfo = new Scanner(System.in);
+                    System.out.println("""
+                            Choose which info you want to display :\s
+                            \tCardiology : 1
+                            \tRadiology : 2
+                            \tVisitors : 3
+                            \tNeurology : 4
+                            \tPediatrics : 5""");
+                    int informationChoice =scannerInfo.nextInt();
+                    switch(informationChoice){
+                        case 1:
+                            challenge8.getOneInfo(1);
+                        case 2:
+                            challenge8.getOneInfo(2);
+                        case 3:
+                            challenge8.getOneInfo(3);
+                        case 4:
+                            challenge8.getOneInfo(4);
+                        case 5:
+                            challenge8.getOneInfo(5);
+                        default:
+                            System.out.println("You must choose a number between 1 and 5");
+                    }
+                }else {
+                    System.out.println("You must choose the number 1 or 2");
+                }
                 break;
             case 9:
                 System.out.println("Coming soon !");
@@ -76,7 +106,7 @@ public class Main {
                 System.out.println("Coming soon !");
                 break;
             default:
-                System.out.println("Invalid choice, please enter a number between 1 and 8.");
+                System.out.println("Invalid choice, please enter a number between 1 and 10.");
                 break;
         }
         scanner.close();
