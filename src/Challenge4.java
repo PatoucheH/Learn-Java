@@ -11,10 +11,10 @@ public class Challenge4 {
         }
         return array;
     }
-    public void displayArray()
+    public void displayArray(int arraySize)
     {
 
-        Integer[] randomArray = generateArrayRandom(10);
+        Integer[] randomArray = generateArrayRandom(arraySize);
 
         for (int i = 0; i < randomArray.length; i++)
         {
