@@ -39,7 +39,7 @@ public class Challenge8 {
         }
     }
 
-    public void getOneInfo(Integer type){
+    public void getOneInfoByType(Integer type){
         getDataCSVFile();
         String info = switch (type) {
             case 1 -> "Cardiology";
@@ -51,7 +51,7 @@ public class Challenge8 {
         };
         for (String[] line : dataArray) {
             String date = line[0];
-            String numberInfo = line[1];
+            String numberInfo = line[type];
             System.out.println("Date : " + date);
             System.out.println(info + " : " + numberInfo);
             System.out.println("-".repeat(20));
