@@ -6,14 +6,14 @@ public class Challenge9 {
     static String[] firstName = {
             "Léo", "Emma", "Noah", "Jade", "Lucas", "Louise", "Hugo", "Alice", "Adam", "Chloé",
             "Nathan", "Lina", "Tom", "Mila", "Enzo", "Léa", "Louis", "Manon", "Gabriel", "Zoé",
-            "Ethan", "Camille", "Mathis", "Sarah", "Timéo", "Anna", "Axel", "Inès", "Raphaël", "Eva"
+            "Ethan", "Camille", "Mathis", "Sarah", "Timo", "Anna", "Axel", "Inès", "Raphaël", "Eva"
     };
 
     static String[] name = {
             "Martin", "Bernard", "Dubois", "Thomas", "Robert", "Richard", "Petit", "Durand", "Leroy", "Moreau",
-            "Simon", "Laurent", "Lefebvre", "Michel", "Garcia", "David", "Bertrand", "Roux", "Vincent", "Fournier",
-            "Morel", "Girard", "Andre", "Lemoine", "Francois", "Guerin", "Leclerc", "Blanc", "Faure", "Chevalier",
-            "Lambert", "Bonnet", "Dupont", "Benoit", "Marty", "Rolland", "Jacquet", "Perrin", "Barbier", "Lopez"
+            "Simon", "Laurent", "Febrile", "Michel", "Garcia", "David", "Bertrand", "Roux", "Vincent", "Fourier",
+            "Morel", "Girard", "Andre", "Leoine", "Francois", "Guerino", "Leclerc", "Blanc", "Fare", "Chevalier",
+            "Lambert", "Bonnet", "Dupont", "Benoit", "Marty", "Rolland", "Jacket", "Perrine", "Babier", "Lopez"
     };
 
     static String[] reason = {
@@ -38,13 +38,13 @@ public class Challenge9 {
 
 
             LocalDate currentDate = LocalDate.now();
-            String text = "";
+            StringBuilder text;
             for (int j = 0; j < fileSize; j++) {
-            text = "\n" + currentDate + ",";
+            text = new StringBuilder("\n" + currentDate + ",");
                 for (int i = 0; i < 4; i++) {
-                    int arrayLength = 0;
-                    String arrayInfo = "";
-                    int index = 0;
+                    int arrayLength;
+                    String arrayInfo;
+                    int index;
                     switch (i) {
                         case 0:
                             arrayLength = firstName.length;
@@ -69,13 +69,13 @@ public class Challenge9 {
                         default:
                             throw new IllegalStateException("Unexpected value: " + i);
                     }
-                    text += arrayInfo + ",";
+                    text.append(arrayInfo).append(",");
                     if (arrayInfo.equals("visit")) i = 10;
                 }
-            textWrite.addTextInCSV(text, "test.csv");
+            textWrite.addTextInCSV(text.toString(), "test.csv");
             }
         }catch(IOException e){
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
     }
 }

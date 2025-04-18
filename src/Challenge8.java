@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class Challenge8 {
     static ArrayList<String[]> dataArray = new ArrayList<>();
 
-    public static ArrayList<String[]> getDataCSVFile () {
+    public static void getDataCSVFile () {
         try {
             File myText = new File("visit-hospital.csv");
             Scanner reader = new Scanner(myText);
@@ -21,7 +21,6 @@ public class Challenge8 {
         }catch (FileNotFoundException e){
             throw new RuntimeException(e);
         }
-        return dataArray;
     }
 
     public static void getAllFile(){
